@@ -8,12 +8,12 @@ def extract_plantuml(text: str) -> str:
     raise ValueError("No PlantUML block found in the text.")
 
 
-def performDiagramValidation(textData):
+def performDiagramValidation(textData: str):
     try:
         code = extract_plantuml(textData)
         result = ParsedPlantUML(plantuml_code=code)
         print(f"✅ Valid {result.diagram_type} diagram")
-        return True
+        return True, code  # return the validated code
     except Exception as e:
         print(f"❌ {e}")
-        return False
+        return False, None

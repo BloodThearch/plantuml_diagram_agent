@@ -6,7 +6,7 @@ def allTests():
     n = len(dataList)
     for i, data in enumerate(dataList):
         print("Running Test {}/{}...".format(i+1,n))
-        if performDiagramValidation(data):
+        if performDiagramValidation(data)[0]:
             print("Data Valid!")
         else:
             print("Data Invalid.")
