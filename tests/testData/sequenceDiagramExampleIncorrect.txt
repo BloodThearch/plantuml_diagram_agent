@@ -1,3 +1,0 @@
-@startuml
-Alice - Bob : Sends a message
-@enduml
