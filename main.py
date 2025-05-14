@@ -7,7 +7,7 @@ from dotenv import dotenv_values
 config = dotenv_values(".env")
 
 def main():
-    client = Llama3Instance(config["NVIDIA_LLAMA3_API_KEY"])
+    client = Llama3Instance(config["KEY"])
     print("Model Instance Created!")
 
     user_input=None
