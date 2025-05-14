@@ -33,7 +33,7 @@ class ParsedPlantUML(BaseModel):
         patterns = {
             'sequence': r'\b\w+\s*->\s*\w+',
             'usecase': r'\b(actor|usecase)\b|\b:\w+:\b|\(.*?\)',
-            'class': r'\bclass\s+\w+',
+            'class': r'\bclass\s+\w+|\w+\s+[-.<|*o+#^x}]+[-.<>|*o+#^x}]+\s+\w+',
             'object': r'\bobject\s+\w+',
             'activity': r'\bstart\b.*\bend\b',
             'component': r'\bcomponent\s+\w+',
@@ -51,7 +51,7 @@ class ParsedPlantUML(BaseModel):
         checks = {
             'sequence': lambda c: re.search(r'\b\w+\s*->\s*\w+', c),
             'usecase': lambda c: re.search(r'\b(actor|usecase)\b|\b:\w+:\b|\(.*?\)', c),
-            'class': lambda c: re.search(r'\bclass\s+\w+', c),
+            'class': lambda c: re.search(r'\bclass\s+\w+|\w+\s+[-.<|*o+#^x}]+[-.<>|*o+#^x}]+\s+\w+', c),
             'object': lambda c: re.search(r'\bobject\s+\w+', c),
             'activity': lambda c: re.search(r'\bstart\b.*\bend\b', c, re.DOTALL),
             'component': lambda c: re.search(r'\bcomponent\s+\w+', c),
